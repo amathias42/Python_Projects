@@ -3,6 +3,7 @@
 import argparse
 import os
 import tkinter as tk
+from tqdm import tqdm  # type: ignore pylint: disable=import-error
 
 # from tkinter import ttk
 
@@ -36,7 +37,7 @@ def convert_images():
 
     register_heif_opener()
     imgList = select_images()
-    for i in imgList:
+    for i in tqdm(imgList):
         img = Image.open(i)
         filename = os.path.splitext(i)[0]  # remove file extension
         filename = filename[filename.rfind("/") :]  # remove path leading up to file
