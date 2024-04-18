@@ -4,6 +4,7 @@ import argparse
 import os
 import tkinter as tk
 from tqdm import tqdm  # type: ignore pylint: disable=import-error
+import time
 
 # from tkinter import ttk
 
@@ -25,9 +26,11 @@ parser.add_argument(
 args = parser.parse_args()
 
 
-def select_images():
+def select_images(initialdir="C:/Users/Andy Mathias/OneDrive - UW/Pictures/"):
     return tk.filedialog.askopenfilenames(
-        title="Select Images", initialdir="/", filetypes=[("HEIC images", "*.heic")]
+        title="Select Images",
+        initialdir=initialdir,
+        filetypes=[("HEIC images", "*.heic")],
     )
 
 
@@ -42,6 +45,7 @@ def convert_images():
         filename = os.path.splitext(i)[0]  # remove file extension
         filename = filename[filename.rfind("/") :]  # remove path leading up to file
         img.save(args.outdir + filename + "." + args.format, format=args.format)
+
     root.destroy()
 
 

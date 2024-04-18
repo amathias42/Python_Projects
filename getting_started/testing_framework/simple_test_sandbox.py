@@ -1,5 +1,6 @@
 import unittest as ut
 
+
 class baseTester(ut.TestCase):
     def testAssertsCorrect(self):
         self.assertEqual(2, 2)
@@ -10,7 +11,6 @@ class baseTester(ut.TestCase):
 
     def testAssertsIncorrect2(self):
         self.assertEqual(2, 3)
-
 
 
 if __name__ == "__main__":
