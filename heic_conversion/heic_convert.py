@@ -3,14 +3,14 @@
 import argparse
 import os
 import tkinter as tk
-from tqdm import tqdm  # type: ignore pylint: disable=import-error
 import time
 
 # from tkinter import ttk
 
-from tkinter import filedialog
+from tkinter import filedialog  # type: ignore pylint: disable=import-error
 from PIL import Image
 from pillow_heif import register_heif_opener  # pylint: disable=import-error
+from tqdm import tqdm  # type: ignore pylint: disable=import-error
 
 
 parser = argparse.ArgumentParser(
