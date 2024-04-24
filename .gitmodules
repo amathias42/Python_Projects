@@ -1,0 +1,3 @@
+[submodule "SCPI"]
+	path = SCPI
+	url = git@github.com:amathias42/Python_Projects.git
