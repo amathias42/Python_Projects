@@ -170,7 +170,7 @@ def bitmask_to_netmask(bitmask):
 
 def ask_settings():
     ip = input("ip: ")
-    while not checkIP:
+    while not checkIP(ip):
         ip = input("ip: ")
     ip, bitmask = isolate_bitmask(ip)
     if bitmask is not None:

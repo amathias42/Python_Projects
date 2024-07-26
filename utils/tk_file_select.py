@@ -1,20 +1,24 @@
 import tkinter as tk
+
 from tkinter import filedialog  # type: ignore pylint: disable=unused-import
 
 
 class TkFileSelect:
 
-    def __init__(self, title="Select files"):
+    def __init__(self, title="Select files", initialdir="."):
         self.results = []
         self.title = title
-        self.file_dialog(title)
+        self.initialdir = initialdir
+        self.fileWindow(title)
         self.root = None
 
     def select_files(self):
-        self.results = tk.filedialog.askopenfilenames(title=self.title, initialdir=".")
+        self.results = tk.filedialog.askopenfilenames(
+            title=self.title, initialdir=self.initialdir
+        )
         self.root.destroy()
 
-    def file_dialog(self, title):
+    def fileWindow(self, title):
         self.root = tk.Tk()
         self.root.title(title)
         self.root.after_idle(self.select_files)
