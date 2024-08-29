@@ -101,7 +101,7 @@ def checkIP(ip):
 
     if bitmask is not None:
         try:
-            int(bitmask)
+            bitmask = int(bitmask)
             if bitmask not in range(33):
                 print("Bitmask must be an integer [0-32]")
                 return False
