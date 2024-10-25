@@ -26,6 +26,9 @@ class Component:
         self.inputValue = value
         self.value = self.inputValue * self.scale
 
+    def __str__(self) -> str:
+        return f"{self.inputValue} {self.SCALES_TO_STR[self.scale]}{self.type}"
+
     def validate_unit(self, unit):
         if type(unit) is not str:
             return False

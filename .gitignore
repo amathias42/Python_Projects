@@ -3,3 +3,10 @@
 *__pycache__*
 
 *heic_conversion*.png
+
+*/logs/*
+
+*network/*.png
+*network/*.html
+
+launch.json
