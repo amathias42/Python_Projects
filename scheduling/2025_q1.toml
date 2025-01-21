@@ -1,0 +1,325 @@
+[[shallow_profiler]]
+name = "new_float"
+
+[[shallow_profiler.tasks]]
+name = "AHRS"
+min = 4
+est = 10
+max = 24
+priority = 2
+
+[[shallow_profiler.tasks]]
+name = "misc_configs"
+min = 6
+est = 12
+max = 32
+priority = 2
+
+[[shallow_profiler.tasks]]
+name = "assemble"
+min = 4
+est = 8
+max = 14
+priority = 2
+
+[[shallow_profiler.tasks]]
+name = "wiring_docs"
+min = 4
+est = 8
+max = 20
+priority = 2
+
+[[shallow_profiler.tasks]]
+name = "G.hn"
+min = 6
+est = 10
+max = 24
+priority = 1
+
+[[shallow_profiler.tasks]]
+name = "ptp"
+min = 1
+est = 3
+max = 6
+priority = 3
+
+[[shallow_profiler.tasks]]
+name = "can"
+min = 3
+est = 6
+max = 12
+priority = 2
+
+[[shallow_profiler.tasks]]
+name = "oob"
+min = 1
+est = 3
+max = 6
+priority = 2
+
+[[shallow_profiler]]
+name = "functional_tests"
+
+[[shallow_profiler.tasks]]
+name = "scip_fts_x3"
+min = 12
+est = 18
+max = 24
+priority = 2
+
+[[shallow_profiler.tasks]]
+name = "wc_fts_x3"
+min = 9
+est = 12
+max = 21
+priority = 1
+
+[[shallow_profiler.tasks]]
+name = "pic_fts_x3"
+min = 12
+est = 18
+max = 24
+priority = 2
+
+[[shallow_profiler]]
+name = "node_changes"
+[[shallow_profiler.tasks]]
+name = "pic_changes_x3"
+
+[[shallow_profiler.tasks.tasks]]
+name = "cisco_isolate_x3"
+min = 3
+est = 6
+max = 10
+priority = 2
+
+[[shallow_profiler.tasks.tasks]]
+name = "CTD_backup_x3"
+min = 6
+est = 12
+max = 18
+priority = 2
+
+[[shallow_profiler.tasks.tasks]]
+name = "Eth_port_1_gig_x3"
+min = 2
+est = 4
+max = 9
+priority = 2
+
+[[shallow_profiler.tasks.tasks]]
+name = "VADCP_to_10_100_eth_x2"
+min = 2
+est = 4
+max = 8
+priority = 2
+
+[[shallow_profiler.tasks.tasks]]
+name = "seaphox_port"
+min = 3
+est = 6
+max = 14
+priority = 2
+
+[[shallow_profiler.tasks]]
+name = "scip_changes_x2"
+
+[[shallow_profiler.tasks.tasks]]
+name = "fans_x3"
+min = 3
+est = 6
+max = 10
+priority = 2
+
+[[shallow_profiler.tasks.tasks]]
+name = "CTD_backup_x1"
+min = 2
+est = 4
+max = 6
+priority = 2
+
+[[shallow_profiler.tasks.tasks]]
+name = "unmanaged_eth_switches_x3"
+min = 3
+est = 6
+max = 18
+priority = 2
+
+[[shallow_profiler.tasks.tasks]]
+name = "sf01a_power_connector_replace"
+min = 1
+est = 2
+max = 4
+priority = 2
+
+[[shallow_profiler]]
+name = "wm_lw_leak_tests"
+min = 6
+est = 8
+max = 16
+priority = 1
+
+[[power_vault]]
+name = "MISO_test_housing"
+
+[[power_vault.tasks]]
+name = "Env_pi_code"
+min = 8
+est = 14
+max = 24
+priority = 2
+
+[[power_vault.tasks]]
+name = "gui"
+min = 4
+est = 10
+max = 16
+priority = 2
+
+[[power_vault]]
+name = "BMS"
+
+[[power_vault.tasks]]
+name = "parser"
+min = 4
+est = 8
+max = 16
+priority = 3
+
+[[power_vault]]
+name = "IIB"
+
+[[power_vault.tasks]]
+name = "schematic"
+
+[[power_vault.tasks.tasks]]
+name = "discrete_components"
+min = 8
+est = 14
+max = 32
+priority = 2
+
+[[power_vault.tasks.tasks]]
+name = "feedback"
+min = 4
+est = 8
+max = 14
+priority = 2
+
+[[power_vault.tasks.tasks]]
+name = "IO_checks"
+min = 4
+est = 8
+max = 18
+priority = 2
+
+[[power_vault.tasks.tasks]]
+name = "review_2"
+min = 6
+est = 10
+max = 14
+priority = 2
+
+[[power_vault.tasks.tasks]]
+name = "final_changes"
+min = 4
+est = 8
+max = 18
+priority = 2
+
+[[power_vault.tasks]]
+name = "layout"
+
+[[power_vault.tasks.tasks]]
+name = "first_pass"
+min = 14
+est = 24
+max = 48
+priority = 3
+
+[[power_vault.tasks.tasks]]
+name = "review"
+min = 4
+est = 8
+max = 10
+priority = 3
+
+[[power_vault.tasks.tasks]]
+name = "fixes"
+min = 12
+est = 20
+max = 30
+priority = 3
+
+[[power_vault.tasks]]
+name = "micro_firmware"
+
+[[power_vault.tasks.tasks]]
+name = "efuse"
+min = 2
+est = 6
+max = 10
+priority = 3
+
+[[power_vault.tasks.tasks]]
+name = "rheostats"
+min = 2
+est = 6
+max = 18
+priority = 3
+
+[[power_vault.tasks.tasks]]
+name = "power_converters"
+min = 1
+est = 3
+max = 6
+priority = 3
+
+[[power_vault.tasks.tasks]]
+name = "ADC_thermistor"
+min = 4
+est = 8
+max = 18
+priority = 3
+
+[[power_vault.tasks.tasks]]
+name = "voltage_monitor"
+min = 1
+est = 2
+max = 6
+priority = 3
+
+[[power_vault.tasks.tasks]]
+name = "GFD_measure"
+min = 3
+est = 6
+max = 16
+priority = 3
+
+[[power_vault.tasks.tasks]]
+name = "Digi"
+min = 8
+est = 16
+max = 28
+priority = 3
+
+[[power_vault.tasks.tasks]]
+name = "serial_transceiver"
+min = 4
+est = 12
+max = 24
+priority = 3
+
+[[power_vault.tasks.tasks]]
+name = "relays"
+min = 1
+est = 4
+max = 10
+priority = 3
+
+[[power_vault.tasks.tasks]]
+name = "micro_main"
+min = 8
+est = 12
+max = 26
+priority = 3

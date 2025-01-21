@@ -118,10 +118,21 @@ class IperfFileReader:
 fr_ambient = IperfFileReader("logs/estimated_extraneous_coupling.txt")
 fr_sw_shield = IperfFileReader("logs/shielding_sw_couple.txt")
 fr_sw = IperfFileReader("logs/saltwater_comms.txt")
+fr_in = IperfFileReader("logs/new_filter_tx_fully_in.iperflog")
+fr_half_out = IperfFileReader("logs/new_filter_tx_half_out.iperflog")
+fr_nearly_out = IperfFileReader("logs/new_filter_tx_nearly_out.iperflog")
+fr_full_out = IperfFileReader("logs/new_filter_tx_fully_out.iperflog")
+fr_2in_out = IperfFileReader("logs/new_filter_tx_2in_out.iperflog")
 
 fr_ambient_dfs = fr_ambient.parseFile()
 fr_sw_shield_dfs = fr_sw_shield.parseFile()
 fr_sw_dfs = fr_sw.parseFile()
+
+in_df = fr_in.parseFile()
+half_out_df = fr_half_out.parseFile()
+nearly_out_df = fr_nearly_out.parseFile()
+full_out_df = fr_full_out.parseFile()
+in2_out_df = fr_2in_out.parseFile()
 
 
 def addTraceToFig(fig, df, name, color):
@@ -135,25 +146,37 @@ def addTraceToFig(fig, df, name, color):
     )
 
 
+def addBoxTraceToFig(fig, df, name, color):
+    fig.add_trace(
+        go.Box(
+            y=df["Bitrate"],
+            name=name,
+            line=dict(color=color),
+        )
+    )
+
+
 fig = go.Figure()
 
-addTraceToFig(fig, fr_ambient_dfs[0], "Ambient TX-to-RX", "salmon")
-addTraceToFig(fig, fr_ambient_dfs[1], "Ambient RX-to-TX", "crimson")
-addTraceToFig(
-    fig, fr_sw_shield_dfs[0], "Shield Coupling Through Saltwater TX-to-RX", "gold"
-)
-addTraceToFig(
-    fig, fr_sw_shield_dfs[1], "Shield Coupling Through Saltwater RX-to-TX", "orange"
-)
-addTraceToFig(fig, fr_sw_dfs[0], "Full Saltwater TX-to-RX", "royalBlue")
-addTraceToFig(fig, fr_sw_dfs[1], "Full Saltwater RX-to-TX", "steelBlue")
+addBoxTraceToFig(fig, in_df, "Fully In", "orange")
+
+# addTraceToFig(fig, fr_ambient_dfs[0], "Ambient TX-to-RX", "salmon")
+# addTraceToFig(fig, fr_ambient_dfs[1], "Ambient RX-to-TX", "crimson")
+# addTraceToFig(
+#     fig, fr_sw_shield_dfs[0], "Shield Coupling Through Saltwater TX-to-RX", "gold"
+# )
+# addTraceToFig(
+#     fig, fr_sw_shield_dfs[1], "Shield Coupling Through Saltwater RX-to-TX", "orange"
+# )
+# addTraceToFig(fig, fr_sw_dfs[0], "Full Saltwater TX-to-RX", "royalBlue")
+# addTraceToFig(fig, fr_sw_dfs[1], "Full Saltwater RX-to-TX", "steelBlue")
 
 
-fig.update_layout(
-    title="Saltwater G.hn Comms Data Rate testing",
-    xaxis_title="Time (s)",
-    yaxis_title="Bitrate (bits/sec)",
-)
+# fig.update_layout(
+#     title="Saltwater G.hn Comms Data Rate testing",
+#     xaxis_title="Time (s)",
+#     yaxis_title="Bitrate (bits/sec)",
+# )
 # fig.write_html("saltwater_ghn_comms.html")
 # fig.write_image("saltwater_ghn_comms.png", width=1500, height=750)
 fig.show()

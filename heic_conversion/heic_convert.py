@@ -51,7 +51,6 @@ def convert_images():
 
 root = tk.Tk()
 root.title("Select .heic Images to Convert")
-# TODO: add progress bar
 # TODO: add image generic renamability
 root.after_idle(convert_images)
 root.mainloop()

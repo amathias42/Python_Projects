@@ -33,5 +33,5 @@ def tick():
 
 
 tick()
-root.geometry(f"{width}x{height}+-1930+0")
+root.geometry(f"{width}x{height}+0+0")
 root.mainloop()

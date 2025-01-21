@@ -2,8 +2,15 @@ import subprocess
 import re
 from pprint import pprint
 
-serverAddr = "10.1.1.35"
+import paramiko
+
+serverAddr = "10.1.1.61"
+server = "miso-pi-1"
 serverPort = "5201"
+
+ssh = paramiko.SSHClient()
+ssh.connect(server, username="spv", password="#power!2024Vault")
+ssh_in, ssh_out, ssh_err = ssh.exec_command(f"iperf3 -s -p {serverPort}")
 
 iperfClientCommandFields = [
     "iperf3",
