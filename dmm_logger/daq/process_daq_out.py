@@ -195,15 +195,15 @@ def make_strain_plot(instronFile, resistanceFile, outfile, title):
 for test in [1, 2, 3]:
 
     make_strain_plot(
-        instronFile=f"daq/instron_run_{test}.txt",
+        instronFile=f"daq/data/instron_run_{test}.txt",
         resistanceFile=f"instron_res_run_{test}.csv",
-        outfile=f"Cable_strain_test_{test}",
+        outfile=f"plots/Cable_strain_test_{test}",
         title=f"Cable strain test {test}",
     )
 
 make_strain_plot(
-    instronFile="daq/instron_test.txt",
+    instronFile="daq/data/instron_test.txt",
     resistanceFile="testing_instron_res.csv",
-    outfile="Instron_test",
+    outfile="plots/Instron_test",
     title="Instron Test",
 )
