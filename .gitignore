@@ -5,6 +5,9 @@
 *heic_conversion*.png
 
 */logs/*
+*/data/*
+*/daq/data/*
+*/plots/*
 
 *network/*.png
 *network/*.html

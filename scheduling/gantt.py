@@ -1,6 +1,6 @@
-import plotly.graph_objects as go
-import pandas as pd
-import toml
+import plotly.graph_objects as go  # type: ignore pylint: disable=import-error
+import pandas as pd  # type: ignore pylint: disable=import-error
+import toml  # type: ignore pylint: disable=import-error
 from pprint import pprint
 import datetime as dt
 
@@ -29,7 +29,7 @@ class TomlTime:
     def sum_project_hours(self, projectDict: Dict) -> float:
         if all(k in projectDict.keys() for k in self.TIME_ESTIMATE_KEYS):
             return self.three_point_estimate(
-                min=projectDict["min"], est=projectDict["est"], max=projectDict["max"]
+                mn=projectDict["min"], est=projectDict["est"], mx=projectDict["max"]
             )
         else:
             retSum = 0
@@ -37,11 +37,16 @@ class TomlTime:
                 retSum += self.sum_project_hours(t)
             return retSum
 
-    @staticmethod
-    def three_point_estimate(min: float, est: float, max: float) -> float:
-        return (min + (4 * est) + max) / 6
+    def data_to_str(self):
+        def to_str_recurse(self, d):
+            if all(k in dict.keys() for k in self.TIME_ESTIMATE_KEYS):
+                return f"{d["name"]}: {d["est"]}"
 
-    def sort_tasks_priority(self, dict):
+    @staticmethod
+    def three_point_estimate(mn: float, est: float, mx: float) -> float:
+        return (mn + (4 * est) + mx) / 6
+
+    def sort_tasks_priority(self, d):
         pass
         # TODO: clean up garbage
         # for key, val in enumerate(dict):
@@ -95,6 +100,8 @@ def total_time():
     print(f"IIB: {pv_IIB_totals}")
 
     print(f"Power vault total: {round(pv_totalSum, 2)}")
+
+    pprint(q1_sched.data)
 
 
 def date_range(start: dt.date, end: dt.date):
