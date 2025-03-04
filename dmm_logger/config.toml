@@ -1,0 +1,6 @@
+[dmm]
+ip = "10.180.80.223"
+telnet_port = 5024
+timeout = 1
+read_termination = "\n"
+write_termination = "\n"
