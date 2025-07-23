@@ -38,9 +38,11 @@ class TomlTime:
             return retSum
 
     def data_to_str(self):
-        def to_str_recurse(self, d):
-            if all(k in dict.keys() for k in self.TIME_ESTIMATE_KEYS):
-                return f"{d["name"]}: {d["est"]}"
+        return self.to_str_recurse(self.data)
+
+    def to_str_recurse(self, d):
+        if all(k in dict.keys() for k in self.TIME_ESTIMATE_KEYS):
+            return f"{d["name"]}: {d["est"]}"
 
     @staticmethod
     def three_point_estimate(mn: float, est: float, mx: float) -> float:

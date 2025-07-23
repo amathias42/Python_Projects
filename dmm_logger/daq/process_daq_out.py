@@ -134,6 +134,37 @@ def make_strain_plot(instronFile, resistanceFile, outfile, title):
         )
     )
 
+    # print(df)
+    # Max load value
+    max_load_ind = df["ch0_volt"].idxmax()
+    max_load = df["ch0_volt"].max()
+
+    max_disp_ind = df["ch1_volt"].idxmax()
+    max_disp = df["ch1_volt"].max()
+    # print(
+    #     f"max_i: {max_load_ind}, max val: {max_load}, df ind: {df['ch0_volt'].loc[str(max_load_ind)]}"
+    # )
+    # print(
+    #     f"max_i: {max_disp_ind}, max val: {max_disp}, df ind: {df['ch1_volt'].loc[str(max_disp_ind)]}"
+    # )
+
+    fig.add_annotation(
+        x=max_load_ind,
+        y=max_load,
+        text=f"Max load = {max_load:.2f} lbs",
+        font=dict(size=20, color=LOAD_COLOR),
+        ax=-200,
+        ay=0,
+    )
+    fig.add_annotation(
+        x=max_disp_ind,
+        y=max_disp * 100,
+        text=f"Max displacement = {max_disp:.2f} in",
+        font=dict(size=20, color=DISPLACEMENT_COLOR),
+        ax=-268 if test != 3 else -265,
+        ay=-200 if test != 3 else -120,
+    )
+
     fig.update_layout(
         title=title,
         xaxis=dict(title="Time (UTC)"),
@@ -189,21 +220,21 @@ def make_strain_plot(instronFile, resistanceFile, outfile, title):
     )
 
     fig.write_html(f"{outfile}.html")
-    fig.write_image(f"{outfile}.png")
+    fig.write_image(f"{outfile}.png", width=1200, height=700)
 
 
 for test in [1, 2, 3]:
 
     make_strain_plot(
         instronFile=f"daq/data/instron_run_{test}.txt",
-        resistanceFile=f"instron_res_run_{test}.csv",
+        resistanceFile=f"data/instron_res_run_{test}.csv",
         outfile=f"plots/Cable_strain_test_{test}",
         title=f"Cable strain test {test}",
     )
 
 make_strain_plot(
     instronFile="daq/data/instron_test.txt",
-    resistanceFile="testing_instron_res.csv",
+    resistanceFile="data/testing_instron_res.csv",
     outfile="plots/Instron_test",
     title="Instron Test",
 )
