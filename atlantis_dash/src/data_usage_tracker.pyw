@@ -9,9 +9,9 @@ from time import sleep
 import plotly.graph_objects as go
 import cv2
 
-URL = "https://128.128.252.4/userportal/webpages/myaccount/login.jsp"
-USERNAME = "sci15"
-PASSWORD = "atlantis"
+URL = "https://128.128.252.4:4443"
+USERNAME = "sci7"
+PASSWORD = "whatWorldsEnd"
 
 
 class DataUsageWatcher:
@@ -79,10 +79,11 @@ class DataUsagePlotter:
 
     def make_ring_chart(self):
         usageDict = self.driver.fetch_usage()
+        pprint(usageDict)
         basicUsageLabels = ["Used", "Current session", "Remaining"]
         basicUsageValues = [
             int(
-                3000
+                5000
                 - int(float(usageDict["totalRemaining"]))
                 - int(float(usageDict["currentSessionUsed"]))
             ),

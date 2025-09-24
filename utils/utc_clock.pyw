@@ -3,7 +3,7 @@ import datetime as dt
 
 
 root = tk.Tk(screenName=":1.0")
-root.title("Atlantis dash")
+root.title("UTC clock")
 
 width = 150
 height = 45

@@ -71,7 +71,7 @@ class AtlantisDash:
             with dat_track.DataUsageWatcher() as w:
                 p = dat_track.DataUsagePlotter(w)
                 p.make_ring_chart()
-                sleep(15)
+                sleep(60 * 5)
 
     def run(self):
 
@@ -79,7 +79,7 @@ class AtlantisDash:
 
         self.tick()
         self.fetch_chart()
-        self.root.geometry(f"{self.tk_width}x{self.tk_height}+795+-1080")
+        # self.root.geometry(f"{self.tk_width}x{self.tk_height}+795+-1080")
 
         self.root.mainloop()
 

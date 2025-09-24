@@ -8,6 +8,8 @@
 */data/*
 */daq/data/*
 */plots/*
+*/carts/*
+*/component_lists/*
 
 *network/*.png
 *network/*.html
